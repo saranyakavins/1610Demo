@@ -1,0 +1,17 @@
+//the project will run on default node
+node(){
+    //set of jons to run on default node master
+    stage('checkout'){
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'eef3f8d0-e1a2-46f2-a048-ff6db656a8d0', url: 'https://github.com/saranyakavins/1610Demo.git']]])
+    }
+    stage('build'){
+        echo 'Doing build'
+    }
+    stage('junit'){
+        echo 'Doing unit testing'
+    }
+}
+
+node(''){
+    //set of jobs to run on node bld01
+}
